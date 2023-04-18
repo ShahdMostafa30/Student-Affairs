@@ -61,30 +61,33 @@ section {
     margin: 30px 0px;
 }
 table {
-  max-width: 100%;
-
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 2px solid black;
 }
-table tbody td {
-    padding: 10px 10px;
-    background-color: #EEE;
-    border: 1px solid #005bead9;
-    text-align: center;
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
 }
-table thead th {
-    color: white;
-    background-color: #005bead9;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px;
+table th,
+table td {
+  padding: 10px;
+  text-align: center;
 }
-
+ table th {
+   background-color: #2283f2;
+   color: white;
+ }
 button {
     color: white;
     border: none;
     background-color: #005bead9;
     border-radius: 20px;
 }
-
+button:hover {
+    background-color: #000000;
+}
 
 footer {
   background: linear-gradient(40deg, #00C6FB 0%, #005BEA 100%);
