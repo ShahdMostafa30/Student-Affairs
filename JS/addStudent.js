@@ -1,3 +1,61 @@
+function validInputs(){
+  let name = document.getElementById("name").value;
+  const nameRegex = /^[A-Z][a-z]+\s[A-Z][a-z]+$/;
+  if (!name.match(nameRegex)) {
+    alert("Invalid Name:\nThe name should begin with capital letter then seperated by space"); 
+    document.getElementById("name").focus();
+    return false;
+  }
+
+  let ID = document.getElementById("ID").value;
+  if (ID.length !== 8) {
+    alert("Invalid ID:\nThe ID must be 8 digits"); 
+    document.getElementById("ID").focus();
+    return false;
+  }
+
+  let Phone = document.getElementById("Phone").value;
+  const phoneRegex = /^\d{11}$/;
+  if(!Phone.match(phoneRegex)){
+    alert("Invalid Phone:\nThe Phone must be 11 digit"); 
+    document.getElementById("Phone").focus();
+    return false;
+  }
+
+  let level = document.getElementById("Level").value;
+  let Department = document.getElementById("Department").value;
+  if (level == "1" || level == "2"){
+    if(Department !== "None"){
+      alert("Invalid Department:\nPlease select None");
+      document.getElementById("Department").focus();
+      return false;
+    }
+  }
+
+  let Email = document.getElementById("Email").value;
+  const emailRegex = /^\w+([.-]?\w+)@\w+([.-]?\w+)(\.\w{2,})+$/;
+  if (!Email.match(emailRegex)) {
+    alert("Invalid Email:\nPlease enter a valid email address"); 
+    document.getElementById("Email").focus();
+    return false;
+  }
+
+  let GPA = document.getElementById("GPA").value;
+  if (GPA === "" || isNaN(GPA) || GPA < 0 || GPA > 4) {
+    alert("Please enter a valid GPA");
+    document.getElementById("GPA").focus();
+    return false;
+  }
+
+  let BirthDate = document.getElementById("BirthDate").value;
+  if(BirthDate == ""){
+    alert("Please enter Birth Date");
+    document.getElementById("BirthDate").focus();
+    return false;
+  }
+  return true;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("form");
   const nameInput = document.getElementById("name");
@@ -15,7 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Get the student data from the input fields
+     // Validate the inputs
+     if (!validInputs()) {
+      return;
+    }
+    else{
+       // Get the student data from the input fields
     const student = {
       name: nameInput.value,
       id: idInput.value,
@@ -37,11 +100,13 @@ document.addEventListener("DOMContentLoaded", function () {
     students.push(student);
     localStorage.setItem("students", JSON.stringify(students));
     console.log("New students:", students);
-    alert("Student data saved to Local Storage!");
+    alert("Student data saved to Local Storage");
 
     // Reset the form
     form.reset();
 
     // Show a confirmation message
+    }
+   
   });
 });

@@ -136,7 +136,7 @@ input[type="radio"]:checked {
  .act label,.inact label {
     margin-left: 10px;
     margin-top: 10px;
- }form .button-cont{
+ }form .button{
   height: 45px;
   margin: 35px 0;
   background: linear-gradient(40deg, #00C6FB 0%, #005BEA 100%);
@@ -148,7 +148,7 @@ input[type="radio"]:checked {
   border-radius: 5px; /* optional */
 }
 
-form .button-cont button {
+form .button button {
   width: 100%; /* make the button full-width */
   height: 100%; /* make the button full-height */
   border: none; /* remove the button border */
