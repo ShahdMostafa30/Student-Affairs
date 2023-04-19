@@ -14,7 +14,7 @@ if (localStorage.getItem("students") === null) {
 
     let student2 = {
         name: "Noureen Saad",
-        id: "202110555",
+        id: "20211055",
         department: "IT",
         level: "Level 3",
         gpa: "3.8",
