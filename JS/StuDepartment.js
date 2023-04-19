@@ -17,9 +17,6 @@ function saveDepartment(event) {
   students[studentIndex].department = departmentSelect.value;
   localStorage.setItem('students', JSON.stringify(students));
   alert('Department saved!');
-  nameInput.value = '';
-  idInput.value = '';
-  departmentSelect.value = '';
 }
 
 saveButton.addEventListener('click', saveDepartment);
