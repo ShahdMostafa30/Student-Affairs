@@ -24,7 +24,7 @@ function validInputs(){
 
   let level = document.getElementById("Level").value;
   let Department = document.getElementById("Department").value;
-  if (level == "1" || level == "2"){
+  if (level == "Level 1" || level == "Level 2"){
     if(Department !== "None"){
       alert("Invalid Department:\nPlease select None");
       document.getElementById("Department").focus();
