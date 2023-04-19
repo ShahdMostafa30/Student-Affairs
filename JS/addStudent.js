@@ -14,14 +14,6 @@ function validInputs(){
     return false;
   }
 
-  let Phone = document.getElementById("Phone").value;
-  const phoneRegex = /^\d{11}$/;
-  if(!Phone.match(phoneRegex)){
-    alert("Invalid Phone:\nThe Phone must be 11 digit"); 
-    document.getElementById("Phone").focus();
-    return false;
-  }
-
   let level = document.getElementById("Level").value;
   let Department = document.getElementById("Department").value;
   if (level == "Level 1" || level == "Level 2"){
@@ -32,6 +24,13 @@ function validInputs(){
     }
   }
 
+  let GPA = document.getElementById("GPA").value;
+  if (GPA === "" || isNaN(GPA) || GPA < 0 || GPA > 4) {
+    alert("Please enter a valid GPA");
+    document.getElementById("GPA").focus();
+    return false;
+  }
+
   let Email = document.getElementById("Email").value;
   const emailRegex = /^\w+([.-]?\w+)@\w+([.-]?\w+)(\.\w{2,})+$/;
   if (!Email.match(emailRegex)) {
@@ -40,12 +39,14 @@ function validInputs(){
     return false;
   }
 
-  let GPA = document.getElementById("GPA").value;
-  if (GPA === "" || isNaN(GPA) || GPA < 0 || GPA > 4) {
-    alert("Please enter a valid GPA");
-    document.getElementById("GPA").focus();
+  let Phone = document.getElementById("Phone").value;
+  const phoneRegex = /^\d{11}$/;
+  if(!Phone.match(phoneRegex)){
+    alert("Invalid Phone:\nThe Phone must be 11 digit"); 
+    document.getElementById("Phone").focus();
     return false;
   }
+
 
   let BirthDate = document.getElementById("BirthDate").value;
   if(BirthDate == ""){
