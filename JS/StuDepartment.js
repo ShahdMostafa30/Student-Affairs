@@ -13,10 +13,19 @@ departmentSelect.value = urlParams.get('department');
 function saveDepartment(event) {
   event.preventDefault();
   const students = JSON.parse(localStorage.getItem('students')) || [];
+  console.log('students before update:', students);
   const studentIndex = students.findIndex(student => student.id === idInput.value);
   students[studentIndex].department = departmentSelect.value;
+  console.log('students after update:', students);
   localStorage.setItem('students', JSON.stringify(students));
+  console.log('students in localStorage:', JSON.parse(localStorage.getItem('students')));
+
+
   alert('Department saved!');
+  nameInput.value = '';
+  idInput.value = '';
+  departmentSelect.value = '';
 }
+
 
 saveButton.addEventListener('click', saveDepartment);
