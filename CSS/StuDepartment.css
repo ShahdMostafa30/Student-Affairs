@@ -85,7 +85,21 @@ form label {
   margin-bottom: 5px;
  
 }
-
+#save-button
+{
+  background: linear-gradient(40deg, #00C6FB 0%, #005BEA 100%);
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+#save-button:hover {
+  background: linear-gradient(-40deg, #00C6FB 0%, #005BEA 100%);
+}
 form input,
 form select {
   padding: 10px;

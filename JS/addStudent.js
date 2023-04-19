@@ -18,14 +18,14 @@ function validInputs(){
   let Department = document.getElementById("Department").value;
   if (level == "Level 1" || level == "Level 2"){
     if(Department !== "None"){
-      alert("Invalid Department:\nPlease select None");
+      alert("Student Level is less than 3:\nPlease select None");
       document.getElementById("Department").focus();
       return false;
     }
   }
 
   let GPA = document.getElementById("GPA").value;
-  if (GPA === "" || isNaN(GPA) || GPA < 0 || GPA > 4) {
+  if (GPA === "" ) {
     alert("Please enter a valid GPA");
     document.getElementById("GPA").focus();
     return false;

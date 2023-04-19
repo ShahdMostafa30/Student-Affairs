@@ -100,7 +100,16 @@ nav a:hover {
     padding: 10px;
     text-align: center;
   }
+    button {
+      color: white;
+      border: none;
+      background-color: #005bead9;
+      border-radius: 20px;
+    }
   
+    button:hover {
+      background-color: #000000;
+    }
   table th {
     background-color: #2283f2;
     color: white;
@@ -116,4 +125,3 @@ nav a:hover {
   footer p {
     margin: 0;
   }
-  
