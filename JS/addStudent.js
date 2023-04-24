@@ -14,6 +14,18 @@ function validInputs(){
     return false;
   }
 
+  let students = JSON.parse(localStorage.getItem("students"));
+  if(students !== null){
+    for(let i = 0; i < students.length; i++){
+      if(students[i].id === ID){
+        alert("Invalid ID:\nThe ID is already exist");
+        document.getElementById("ID").focus();
+        return false;
+      }
+    }
+  }
+
+
   let level = document.getElementById("Level").value;
   let Department = document.getElementById("Department").value;
   if (level == "Level 1" || level == "Level 2"){
