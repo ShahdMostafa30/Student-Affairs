@@ -17,6 +17,8 @@ function displayStudents() {
                     <td>${student.dateOfBirth}</td>
                     <td>${student.level}</td>
                     <td>${student.status}</td>
+                   <td><button onclick="editStudent('${student.id}', '${student.name}', '${student.department}', '${student.level}', '${student.gpa}', '${student.email}', '${student.phone}', '${student.dateOfBirth}', '${student.gender}', '${student.status}')">Edit</button></td>
+
                 `;
     tableBody.appendChild(tr);
   });
@@ -41,6 +43,8 @@ function searchStudents() {
                     <td>${student.dateOfBirth}</td>
                     <td>${student.level}</td>
                     <td>${student.status}</td>
+                   <td><button onclick="editStudent('${student.id}', '${student.name}', '${student.department}', '${student.level}', '${student.gpa}', '${student.email}', '${student.phone}', '${student.dateOfBirth}', '${student.gender}', '${student.status}')">Edit</button></td>
+
                 `;
     tableBody.appendChild(tr);
   });
@@ -50,5 +54,10 @@ searchButton.addEventListener('click', searchStudents);
 function editDepartment(studentId, studentName, studentDepartment) {
   // redirect to the student's editing page, passing the ID, name, and department as URL parameters
   const url = `StuDepartment.html?id=${studentId}&name=${encodeURIComponent(studentName)}&department=${encodeURIComponent(studentDepartment)}`;
+  window.location.href = url;
+}
+function editStudent(studentId, studentName, studentDepartment, studentLevel, studentGpa, studentEmail,
+  studentPhone, studentDateOfBirth, studentGender, studentStatus) {
+  const url = `Edit.html?id=${studentId}&name=${encodeURIComponent(studentName)}&department=${encodeURIComponent(studentDepartment)}&level=${encodeURIComponent(studentLevel)}&gpa=${encodeURIComponent(studentGpa)}&email=${encodeURIComponent(studentEmail)}&phone=${encodeURIComponent(studentPhone)}&dob=${encodeURIComponent(studentDateOfBirth)}&gender=${encodeURIComponent(studentGender)}&status=${encodeURIComponent(studentStatus)}`;
   window.location.href = url;
 }
