@@ -8,6 +8,7 @@ urlpatterns = [
     path('home/', include('studentaffairs_app.urls')),
     path('add/', include('studentaffairs_app.urls')),
     path('help/', include('studentaffairs_app.urls')),
+    path('information/', include('studentaffairs_app.urls')),
     path('get-students/', include('studentaffairs_app.urls')),
     path('update_student/', include('studentaffairs_app.urls')),
     path('delete_student/', include('studentaffairs_app.urls')),
