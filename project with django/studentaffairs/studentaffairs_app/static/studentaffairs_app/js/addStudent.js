@@ -60,35 +60,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("addStudentForm");
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-
     // Validate the inputs
     if (!validInputs()) {
       return;
     } else {
       let formData = new FormData(form);
-      fetch("add_student/", {
-        method: "POST",
-        body: formData,
-        headers: {
-          "X-CSRFToken": getCookie("csrftoken") // Include the CSRF token in the request header
+      let xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          let response = JSON.parse(this.responseText);
+          // Handle the response data
+          if (response.message === "Student added successfully") {
+            alert(response.message);
+            form.reset();
+          } else {
+            alert(response.message);
+          }
         }
-      })
-      .then(response => response.json())
-      .then(data => {
-        // Handle the response data
-        if (data.message === "Student added successfully") {
-          alert(data.message);
-          form.reset();
-        } else {
-          alert(data.message);
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+      };
+      xhttp.open("POST", "add_student/", true);
+      xhttp.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
+      xhttp.send(formData);
     }
   });
 });
+
 
 // Helper function to get the CSRF token
 function getCookie(name) {
