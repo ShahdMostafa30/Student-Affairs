@@ -49,8 +49,6 @@ def add_student(request):
         return JsonResponse({'message': 'Student added successfully'})
 
 
-
-
 def get_students(request):
     # Retrieve all student objects from the database
     students = Student.objects.all()
@@ -98,3 +96,15 @@ def update_student(request):
     # Return a JSON response indicating that the update was successful
     response_data = {'message': 'Student updated successfully'}
     return JsonResponse(response_data)
+
+def delete_student(request):
+    if request.method == 'POST':
+        try:
+            data = request.POST.dict()
+            student = Student.objects.get(student_id=data['studID'])     
+            student.delete()
+            return JsonResponse({'message': 'Student deleted successfully'})
+        except Student.DoesNotExist:
+            return JsonResponse({'message': 'Student does not exist'})
+    else:
+        return redirect('/information')
