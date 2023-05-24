@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from studentaffairs_app.models import Student
 from django.http import JsonResponse
+from django.db.models import Q
 import json
 
 def index(request):
@@ -125,3 +126,29 @@ def update_department(request):
     
     response_data = {'message': 'Department updated successfully'}
     return JsonResponse(response_data)
+
+def search_students(request):
+    if request.method == 'POST':
+        search_param = request.POST.get('search_param', '')
+
+        students = Student.objects.filter(Q(name_icontains=search_param) | Q(department_icontains=search_param))
+
+        student_list = []
+        for student in students:
+            student_dict = {
+                'name': student.name,
+                'student_id': student.student_id,
+                'level': student.level,
+                'department': student.department,
+                'gpa': student.gpa,
+                'email': student.email,
+                'phone': student.phone,
+                'date_of_birth': student.date_of_birth,
+                'gender': student.gender,
+                'status': student.status,
+            }
+            student_list.append(student_dict)
+
+        return JsonResponse(student_list, safe=False)
+
+    return JsonResponse({'message': 'Invalid request'})
