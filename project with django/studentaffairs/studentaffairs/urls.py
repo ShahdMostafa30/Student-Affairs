@@ -10,6 +10,8 @@ urlpatterns = [
     path('help/', include('studentaffairs_app.urls')),
     path('edit/', include('studentaffairs_app.urls')),
     path('information/', include('studentaffairs_app.urls')),
+    path('Search/', include('studentaffairs_app.urls')),
+    path('StuDepartment/', include('studentaffairs_app.urls')),
     path('get-students/', include('studentaffairs_app.urls')),
     path('update_student/', include('studentaffairs_app.urls')),
     path('delete_student/', include('studentaffairs_app.urls')),
