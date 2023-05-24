@@ -15,6 +15,10 @@ def Information(request):
     return render(request, "Information.html")
 def Help(request):
     return render(request, "Help.html")
+def Search(request):
+    return render(request, "Search.html")
+def StuDepartment(request):
+    return render(request, "StuDepartment.html")
 
 def add_student(request):
     if request.method == 'POST':
