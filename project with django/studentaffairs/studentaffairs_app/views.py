@@ -108,3 +108,16 @@ def delete_student(request):
             return JsonResponse({'message': 'Student does not exist'})
     else:
         return redirect('/information')
+    
+def update_department(request):
+    
+    data = request.POST.dict()
+    
+    student = Student.objects.get(student_id=data['ID'])
+
+    student.department = data['Department']
+    
+    student.save()
+    
+    response_data = {'message': 'Department updated successfully'}
+    return JsonResponse(response_data)
