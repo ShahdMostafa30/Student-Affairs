@@ -13,5 +13,6 @@ urlpatterns = [
     path('get-students/', include('studentaffairs_app.urls')),
     path('update_student/', include('studentaffairs_app.urls')),
     path('delete_student/', include('studentaffairs_app.urls')),
+    path('update_department/', include('studentaffairs_app.urls')),
 ]
 
