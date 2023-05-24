@@ -14,6 +14,8 @@ urlpatterns = [
     path('help/', views.Help),
     path('edit/', views.Edit),
     path('information/', views.Information),
+    path('Search/', views.Search),
+    path('StuDepartment/', views.StuDepartment),
     path('get-students/', views.get_students, name='get_students'),
     path('update_student/', views.update_student, name='update_student'),
     path('delete_student/', views.delete_student, name='delete_student'),
